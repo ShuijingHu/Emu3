@@ -165,7 +165,7 @@ from emu3.mllm.processing_emu3 import Emu3Processor
 
 # model path
 EMU_HUB = "BAAI/Emu3-Chat"
-VQ_HUB = "BAAI/Emu3-VisionTokenier"
+VQ_HUB = "BAAI/Emu3-VisionTokenizer"
 
 # prepare model and processor
 model = AutoModelForCausalLM.from_pretrained(
