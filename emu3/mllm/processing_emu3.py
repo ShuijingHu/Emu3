@@ -69,7 +69,7 @@ class Emu3Processor(ProcessorMixin):
         image_processor=None,
         vision_tokenizer=None,
         tokenizer=None,
-        chat_template="You are a helpful assistant. USER: {image_prompt}{text_prompt}. ASSISTANT:",
+        #chat_template="You are a helpful assistant. USER: {image_prompt}{text_prompt}. ASSISTANT:",
         prefix_template="{H}*{W}",
         visual_template=("<|visual token {token_id:0>6d}|>", r"<\|visual token (\d+)\|>"),
         **kwargs,
@@ -81,7 +81,8 @@ class Emu3Processor(ProcessorMixin):
         self.visual_template = visual_template
         self.vis_tok_spatial_factor = 2 ** (len(self.vision_tokenizer.config.ch_mult) - 1)
 
-        super().__init__(image_processor, tokenizer, chat_template=chat_template)
+        #super().__init__(image_processor, tokenizer, chat_template=chat_template)
+        super().__init__(image_processor, tokenizer)
         self.const_helper = self.build_const_helper()
 
     @torch.no_grad()
