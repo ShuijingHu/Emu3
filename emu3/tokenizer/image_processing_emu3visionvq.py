@@ -38,8 +38,13 @@ from transformers.image_utils import (
     make_list_of_images,
     to_numpy_array,
     valid_images,
-    validate_preprocess_arguments,
+    
 )
+try:
+    from transformers.image_utils import validate_preprocess_arguments
+except ImportError:
+    def validate_preprocess_arguments(*args, **kwargs):
+        return  # 旧版本没有这个函数，就跳过
 from transformers.utils import TensorType, is_vision_available, logging
 
 
