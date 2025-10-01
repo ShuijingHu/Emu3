@@ -24,7 +24,11 @@ import torch
 from torch.nn import functional as F
 from transformers.feature_extraction_utils import BatchFeature
 from transformers.image_utils import ImageInput, get_image_size, to_numpy_array
-from transformers.processing_utils import ProcessingKwargs, ProcessorMixin
+from transformers.processing_utils import ProcessorMixin
+try:
+    from transformers.processing_utils import ProcessingKwargs
+except ImportError:
+    ProcessingKwargs = None 
 from transformers.tokenization_utils_base import TextInput, PreTokenizedInput
 from transformers.utils import logging
 
